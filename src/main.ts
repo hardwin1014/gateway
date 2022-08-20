@@ -32,7 +32,7 @@ async function bootstrap() {
   // 接口版本化管理
   app.enableVersioning({
     type: VersioningType.URI,
-    defaultVersion: [VERSION_NEUTRAL, '1', '2'],
+    defaultVersion: [VERSION_NEUTRAL],
   });
 
   // 启动全局字段校验，保证请求接口字段校验正确。
