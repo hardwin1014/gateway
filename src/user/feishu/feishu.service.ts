@@ -1,16 +1,10 @@
-import { CACHE_MANAGER, Inject, Injectable, Logger } from '@nestjs/common';
-import {
-  getAppToken,
-  getUserAccessToken,
-  getUserToken,
-  refreshUserToken,
-} from 'src/helper/feishu/auth';
+import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import { getAppToken } from 'src/helper/feishu/auth';
 import { Cache } from 'cache-manager';
 import { BusinessException } from '@/common/exceptions/business.exception';
 // 全局使用utils中的项目配置,已经在
 import { ConfigService } from '@nestjs/config';
 import { messages } from '@/helper/feishu/message';
-import { log } from 'util';
 
 @Injectable()
 export class FeishuService {
