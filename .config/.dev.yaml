@@ -1,9 +1,3 @@
-FEISHU_CONFIG:
-  FEISHU_URL: https://open.feishu.cn/open-apis
-  FEISHU_API_HOST: https://open.feishu.cn
-  FEISHU_APP_ID: cli_a27cbaa36dbdd013
-  FEISHU_APP_SECRET: 6gi3f3XDCdQMYpCkJywojfTZBgUKR6vD
-APP_TOKEN_CACHE_KEY: APP_TOKEN_CACHE_KEY
 MONGODB_CONFIG:
   name: "fast_gateway_test"          # 自定义次数据库链接名称
   type: mongodb                      # 数据库链接类型
