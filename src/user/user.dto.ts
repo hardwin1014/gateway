@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 export class AddUserDto {
-  @ApiProperty({ example: 123 })
+  @ApiProperty({ example: 111 })
   id?: string;
 
   @ApiProperty({ example: '苍南' })

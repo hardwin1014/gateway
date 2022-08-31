@@ -13,7 +13,7 @@ export class UserController {
   })
   @Post('/add')
   // dto数据传输对象
-  create(@Body() user: AddUserDto) {
+  create(@Body('user') user: AddUserDto) {
     console.log(user);
     return this.userService.createOrSave(user);
   }
