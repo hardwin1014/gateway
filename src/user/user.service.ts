@@ -6,11 +6,15 @@ import { User } from './user.mongo.entity';
 export class UserService {
   constructor(
     @Inject('USER_REPOSITORY')
-    private userRepository: MongoRepository<User>,
+    private readonly userRepository: MongoRepository<User>,
   ) {}
 
   createOrSave(user) {
-    console.log(user);
     return this.userRepository.save(user);
+  }
+
+  async findAll(): Promise<User[]> {
+    console.log(this.userRepository);
+    return await this.userRepository.find();
   }
 }

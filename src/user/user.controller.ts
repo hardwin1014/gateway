@@ -1,4 +1,4 @@
-import { Controller, Post, Body, VERSION_NEUTRAL } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
 import { UserService } from './user.service';
 import { AddUserDto } from './user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -18,5 +18,13 @@ export class UserController {
   create(@Body() user: AddUserDto) {
     console.log(111);
     return this.userService.createOrSave(user);
+  }
+
+  @ApiOperation({
+    summary: '查找用户',
+  })
+  @Get('/all')
+  find() {
+    return this.userService.findAll();
   }
 }
