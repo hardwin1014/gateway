@@ -22,6 +22,6 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true // 默认情况下，在TS开发的项目中没办法导入.json,所以要添加上这个配置即可
   }
 }

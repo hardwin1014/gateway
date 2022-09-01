@@ -1,10 +1,13 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, VERSION_NEUTRAL } from '@nestjs/common';
 import { UserService } from './user.service';
 import { AddUserDto } from './user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('用户')
-@Controller('user')
+@Controller({
+  path: 'user',
+  // version: '1',
+})
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -12,9 +15,8 @@ export class UserController {
     summary: '新增用户',
   })
   @Post('/add')
-  // dto数据传输对象
-  create(@Body('user') user: AddUserDto) {
-    console.log(user);
+  create(@Body() user: AddUserDto) {
+    console.log(111);
     return this.userService.createOrSave(user);
   }
 }

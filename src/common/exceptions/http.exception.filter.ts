@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { BusinessException } from './business.exception';
 
+// http.exception.filter.ts => Catch 的参数为 HttpException 将只捕获 HTTP 相关的异常错误
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
   catch(exception: HttpException, host: ArgumentsHost) {

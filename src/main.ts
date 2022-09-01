@@ -15,6 +15,7 @@ import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { generateDocument } from './doc';
 
+// 声明热更新的module
 declare const module: any;
 
 async function bootstrap() {
@@ -23,16 +24,17 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
-  // 统一响应体格式
+  // 统一响应体格式，全局拦截器
   app.useGlobalInterceptors(new TransformInterceptor());
 
   // 异常过滤  引入自定义异常的先后顺序，不然异常捕获逻辑会出现混乱。
   app.useGlobalFilters(new AllExceptionsFilter(), new HttpExceptionFilter());
 
   // 接口版本化管理
+  // 需要在对应的接口处，写对应的版本号才生效，一般接口不需要处理
   app.enableVersioning({
     type: VersioningType.URI,
-    defaultVersion: [VERSION_NEUTRAL],
+    defaultVersion: [VERSION_NEUTRAL], // 1, 2
   });
 
   // 启动全局字段校验，保证请求接口字段校验正确。
@@ -47,6 +49,6 @@ async function bootstrap() {
     module.hot.dispose(() => app.close());
   }
 
-  await app.listen(3002);
+  await app.listen(3000);
 }
 bootstrap();

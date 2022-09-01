@@ -21,11 +21,11 @@ export class TransformInterceptor<T>
   ): Observable<Response<T>> {
     return next.handle().pipe(
       map((data) => ({
-        data,
-        status: 0,
-        extra: {},
-        message: 'success',
-        success: true,
+        data, // 数据
+        status: 0, // 接口状态值
+        extra: {}, // 扩展信息
+        message: 'success', // 异常信息
+        success: true, // 接口业务返回状态
       })),
     );
   }
