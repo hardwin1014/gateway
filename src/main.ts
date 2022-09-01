@@ -8,20 +8,26 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import fastify from 'fastify';
 import { AppModule } from './app.module';
 // 这里一定要注意引入自定义异常的先后顺序，不然异常捕获逻辑会出现混乱。
 import { AllExceptionsFilter } from './common/exceptions/base.exception.filter';
 import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
 import { TransformInterceptor } from './common/interceptors/transform.interceptor';
+import { FastifyLogger } from './common/logger';
 import { generateDocument } from './doc';
 
 // 声明热更新的module
 declare const module: any;
 
 async function bootstrap() {
+  const fastifyInstance = fastify({
+    logger: FastifyLogger,
+  });
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter(),
+    new FastifyAdapter(fastifyInstance),
   );
 
   // 统一响应体格式，全局拦截器
