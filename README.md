@@ -41,8 +41,8 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-### next模板
-+ 在template分支下是整理好的next模板分支
+### nest模板
++ 在template分支下是整理好的nest模板分支
 + 数据连接
 + 异常处理
 + 统一响应体处理
