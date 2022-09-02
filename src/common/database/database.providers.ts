@@ -14,7 +14,10 @@ const MONGODB_DATABASE_CONFIG = {
   entities: [
     // 这个属性配置代表，会以entity.ts结尾的实例类，都会被自动扫描识别，并在数据库中生成对应都实体表
     // 想使用mysql又想用自动注册这个功能都话。一定要区分后缀名，不然会出现混乱注册都情况
-    path.join(__dirname, `../../**/*.${MONGODB_CONFIG.entities}.entity{.ts}`),
+    path.join(
+      __dirname,
+      `../../**/*.${MONGODB_CONFIG.entities}.entity{.ts,.js}`,
+    ),
   ],
 };
 

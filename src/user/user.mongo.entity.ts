@@ -1,16 +1,16 @@
-import {Entity, Column, ObjectIdColumn, ObjectID} from 'typeorm';
+import { Entity, Column, ObjectIdColumn, ObjectID } from 'typeorm';
 
 @Entity()
 export class User {
   @ObjectIdColumn()
   id?: ObjectID;
 
-  @Column('cang')
+  @Column({ default: null })
   name: string;
 
-  @Column('nan')
+  @Column()
   email: string;
 
-  @Column('苍南')
+  @Column()
   username: string;
 }
