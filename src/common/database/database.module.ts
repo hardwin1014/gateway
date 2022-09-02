@@ -5,6 +5,6 @@ import { DatabaseProviders } from './database.providers';
   providers: [...DatabaseProviders],
   exports: [...DatabaseProviders],
 })
-export class DatabaseModule { }
+export class DatabaseModule {}
 
 // Nest IoC 容器中注册提供程序
