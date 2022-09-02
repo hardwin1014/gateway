@@ -10,7 +10,6 @@ export class UserService {
   ) {}
 
   createOrSave(user) {
-    console.log(user);
     return this.userRepository.save(user);
   }
 }
