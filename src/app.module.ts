@@ -4,6 +4,8 @@ import { ConfigModule } from '@nestjs/config';
 import { getConfig } from './utils';
 import { RegisterModule } from './register/register.module';
 import * as redisStore from 'cache-manager-redis-store';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { TransformInterceptor } from '@/common/interceptors/transform.interceptor';
 
 @Module({
   imports: [
@@ -25,7 +27,12 @@ import * as redisStore from 'cache-manager-redis-store';
     RegisterModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TransformInterceptor,
+    },
+  ],
 })
 export class AppModule {}
 

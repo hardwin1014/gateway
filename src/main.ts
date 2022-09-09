@@ -30,9 +30,6 @@ async function bootstrap() {
     new FastifyAdapter(fastifyInstance),
   );
 
-  // 统一响应体格式，全局拦截器
-  app.useGlobalInterceptors(new TransformInterceptor());
-
   // 异常过滤  引入自定义异常的先后顺序，不然异常捕获逻辑会出现混乱。
   app.useGlobalFilters(new AllExceptionsFilter(), new HttpExceptionFilter());
 
