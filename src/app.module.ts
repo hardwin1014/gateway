@@ -20,7 +20,7 @@ import { TransformInterceptor } from '@/common/interceptors/transform.intercepto
     // 全局注册configService，NestJS 本身也自带了多环境配置方法
     ConfigModule.forRoot({
       ignoreEnvFile: true, // 禁用默认读取 .env 的规则，去读取yaml中的
-      isGlobal: true, // 这里开启的是全局注册configService ,如果没有开启，如果使用。需要在单独模块的。module中注册
+      isGlobal: true, // 这里开启的是全局注册configService ,如果没有开启，如果使用。需要在单独模块的module中注册
       load: [getConfig], // 读取utils里面的项目配置，注册到全局。通过自定义配置项即可正常使用环境变量，getConfig是函数
     }),
     UserModule,

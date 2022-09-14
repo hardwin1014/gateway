@@ -13,7 +13,6 @@ import { AppModule } from './app.module';
 // 这里一定要注意引入自定义异常的先后顺序，不然异常捕获逻辑会出现混乱。
 import { AllExceptionsFilter } from './common/exceptions/base.exception.filter';
 import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
-import { TransformInterceptor } from './common/interceptors/transform.interceptor';
 import { FastifyLogger } from './common/logger';
 import { generateDocument } from './doc';
 
